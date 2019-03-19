@@ -24,7 +24,7 @@ public extension FigoClient {
      - Parameter password: The figo account password
      - Parameter completionHandler: Returns refresh token or error
      */
-    public func loginWithUsername(_ username: String, password: String, _ completionHandler: @escaping (FigoResult<String>) -> Void) {
+    public func loginWithUsername(_ username: String, password: String, _ completionHandler: @escaping (FigoResult<Authorization>) -> Void) {
         request(.loginUser(username: username, password: password)) { response in
             
             let unboxingResult: FigoResult<Authorization> = decodeUnboxableResponse(response)
@@ -32,7 +32,7 @@ public extension FigoClient {
             case .success(let authorization):
                 self.accessToken = authorization.accessToken
                 self.refreshToken = authorization.refreshToken
-                completionHandler(FigoResult.success(authorization.refreshToken!))
+                completionHandler(FigoResult.success(authorization))
                 break
             case .failure(let error):
                 completionHandler(.failure(error))
@@ -50,15 +50,15 @@ public extension FigoClient {
      - Parameter refreshToken: The refresh token returned from a previous CREDENTIAL LOGIN
      - parameter completionHandler: Returns nothing or error
      */
-    public func loginWithRefreshToken(_ refreshToken: String, _ completionHandler: @escaping VoidCompletionHandler) {
+    public func loginWithRefreshToken(_ refreshToken: String, _ completionHandler: @escaping (FigoResult<Authorization>) -> Void) {
         request(Endpoint.refreshToken(refreshToken)) { response in
-
+            
             let unboxingResult: FigoResult<Authorization> = decodeUnboxableResponse(response)
             switch unboxingResult {
             case .success(let authorization):
                 self.accessToken = authorization.accessToken
                 self.refreshToken = authorization.refreshToken
-                completionHandler(.success(()))
+                completionHandler(.success((authorization)))
                 break
             case .failure(let error):
                 completionHandler(.failure(error))
@@ -106,4 +106,5 @@ public extension FigoClient {
     }
     
 }
+
 

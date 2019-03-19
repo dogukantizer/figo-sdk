@@ -34,7 +34,7 @@ public extension FigoClient {
             completionHandler(.failure(FigoError(error: .taskProcessingTimeout)))
             return
         }
-
+        
         request(Endpoint.pollTaskState(parameters)) { responseData in
             let decoded: FigoResult<TaskState> = decodeUnboxableResponse(responseData)
             
@@ -67,9 +67,10 @@ public extension FigoClient {
                         return
                     }
                     
-                    let pin = pinHandler(state.message, state.accountID)
-                    let nextParameters = PollTaskStateParameters(taskToken: parameters.taskToken, pin: pin.pin, savePin: pin.savePin)
-                    self.pollTaskState(nextParameters, countdown - 1, progressHandler, pinHandler, challengeHandler, completionHandler)
+                    pinHandler(state.message, state.accountID) { (pin, savePin) in
+                        let nextParameters = PollTaskStateParameters(taskToken: parameters.taskToken, pin: pin, savePin: savePin)
+                        self.pollTaskState(nextParameters, countdown - 1, progressHandler, pinHandler, challengeHandler, completionHandler)
+                    }
                 }
                     
                 else if state.isWaitingForResponse {
@@ -82,11 +83,12 @@ public extension FigoClient {
                         return
                     }
                     
-                    let response = challengeHandler(state.message, state.accountID, challenge)
-                    let nextParameters = PollTaskStateParameters(taskToken: parameters.taskToken, response: response)
-                    self.pollTaskState(nextParameters, countdown - 1, progressHandler, pinHandler, challengeHandler, completionHandler)
+                    challengeHandler(state.message, state.accountID, challenge) { (tan) in
+                        let nextParameters = PollTaskStateParameters(taskToken: parameters.taskToken, response: tan)
+                        self.pollTaskState(nextParameters, countdown - 1, progressHandler, pinHandler, challengeHandler, completionHandler)
+                    }
                 }
-
+                    
                 else {
                     self.delay() {
                         let nextParameters = PollTaskStateParameters(taskToken: parameters.taskToken)

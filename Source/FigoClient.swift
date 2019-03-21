@@ -41,10 +41,10 @@ public class FigoClient: NSObject {
     fileprivate var basicAuthCredentials: String?
 
     /// OAuth2 access token
-    var accessToken: String?
+    public var accessToken: String?
     
     /// OAuth2 refresh token
-    var refreshToken: String?
+    public var refreshToken: String?
     
     /// Public keys extracted from certificate files in bundle
     lazy var publicKeys: [SecKey] = {

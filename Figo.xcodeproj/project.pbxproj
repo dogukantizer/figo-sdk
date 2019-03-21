@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184C498522423A32001A9E5B /* ModifyUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C498422423A32001A9E5B /* ModifyUserParameters.swift */; };
 		7B6025731EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025741EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025751EF169E7005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
@@ -183,6 +184,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184C498422423A32001A9E5B /* ModifyUserParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyUserParameters.swift; sourceTree = "<group>"; };
 		7B6025721EF169E2005EF5B0 /* figo_2017.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = figo_2017.cer; sourceTree = "<group>"; };
 		83017B771C0A2FE80062FC08 /* TaskState.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TaskState.json; path = Resources/TaskState.json; sourceTree = "<group>"; };
 		830E63D81C05A4050048F7BF /* TANScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TANScheme.swift; path = Types/TANScheme.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		838FD9F31C0DF8D900525E1D /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				184C498422423A32001A9E5B /* ModifyUserParameters.swift */,
 				838FD9F41C0DF8D900525E1D /* CreateAccountParameters.swift */,
 				838FDA2B1C0EEFB500525E1D /* CreatePaymentParameters.swift */,
 				838FD9F51C0DF8D900525E1D /* CreateSyncTaskParameters.swift */,
@@ -802,6 +805,7 @@
 				83648D661C0C75E600286FFB /* SupportedService.swift in Sources */,
 				831183761E3DF13D000DA80C /* Logging.swift in Sources */,
 				838FD9F91C0DF8D900525E1D /* CreateAccountParameters.swift in Sources */,
+				184C498522423A32001A9E5B /* ModifyUserParameters.swift in Sources */,
 				83648D631C0C705700286FFB /* SupportedBank.swift in Sources */,
 				838FDA361C0EFC0300525E1D /* Payment.swift in Sources */,
 				83E95C941C076C190013ED1F /* Challenge.swift in Sources */,

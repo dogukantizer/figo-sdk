@@ -1,3 +1,4 @@
+
 //
 //  Requests.swift
 //  Figo
@@ -23,6 +24,7 @@ internal enum Endpoint {
     fileprivate static let baseURLString = "https://api.figo.me"
     
     case createNewFigoUser(CreateUserParameters)
+    case modifyFigoUser(ModifyUserParameters)
     case loginUser(username: String, password: String)
     case deleteCurrentUser
     case retrieveCurrentUser
@@ -39,7 +41,7 @@ internal enum Endpoint {
     case retrieveLoginSettings(countryCode: String, bankCode: String)
     case retrieveSupportedBanks(countryCode: String?)
     case retrieveSupportedServices(countryCode: String?)
-
+    
     case pollTaskState(PollTaskStateParameters)
     case synchronize([String: AnyObject])
     
@@ -54,7 +56,7 @@ internal enum Endpoint {
     case retrieveStandingOrders
     case retrieveStandingOrdersForAccount(String)
     case retrieveStandingOrder(String)
-
+    
     case retrievePaymentProposals
     case retrievePayments
     case retrievePaymentsForAccount(String)
@@ -62,15 +64,15 @@ internal enum Endpoint {
     case createPayment(CreatePaymentParameters)
     case modifyPayment(Payment)
     case submitPayment(Payment, tanSchemeID: String)
-
-
+    
+    
     fileprivate var method: Method {
         switch self {
         case .loginUser, .refreshToken, .createNewFigoUser, .revokeToken, .setupAccount, .pollTaskState, .removeStoredPin, .synchronize, .createPayment, .submitPayment:
             return .POST
         case .deleteCurrentUser, .deleteAccount:
             return .DELETE
-        case .modifyPayment:
+        case .modifyPayment, .modifyFigoUser:
             return .PUT
         default:
             return .GET
@@ -89,7 +91,7 @@ internal enum Endpoint {
             return "/rest/accounts/" + accountId
         case .retrieveAccounts, .setupAccount:
             return "/rest/accounts"
-        case .retrieveCurrentUser, .deleteCurrentUser:
+        case .retrieveCurrentUser, .deleteCurrentUser, .modifyFigoUser:
             return "/rest/user"
         case .createNewFigoUser:
             return "/auth/user"
@@ -157,6 +159,8 @@ internal enum Endpoint {
         case .revokeToken(let token):
             return ["token": token as AnyObject, "cascade": false as AnyObject]
         case .createNewFigoUser(let user):
+            return user.JSONObject
+        case .modifyFigoUser(let user):
             return user.JSONObject
         case .setupAccount(let account):
             return account.JSONObject
@@ -255,6 +259,7 @@ private func queryStringForParameters(_ parameters: [String: AnyObject]) -> Stri
     }
     return (components.map { "\($0)=\($1)" } as [String]).joined(separator: "&")
 }
+
 
 
 

@@ -229,11 +229,12 @@ internal enum Endpoint {
         }
     }
     
-    internal var URLRequest: NSMutableURLRequest {
+    internal func URLRequest(language: String) -> NSMutableURLRequest {
         let URL = Foundation.URL(string: Endpoint.baseURLString)!
         let request = NSMutableURLRequest(url: URL.appendingPathComponent(path))
         request.httpMethod = self.method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(language, forHTTPHeaderField: "Accept-Language")
         encodeParameters(request)
         return request
     }
@@ -259,6 +260,7 @@ private func queryStringForParameters(_ parameters: [String: AnyObject]) -> Stri
     }
     return (components.map { "\($0)=\($1)" } as [String]).joined(separator: "&")
 }
+
 
 
 

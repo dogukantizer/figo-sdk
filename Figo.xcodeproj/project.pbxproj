@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		184C498522423A32001A9E5B /* ModifyUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C498422423A32001A9E5B /* ModifyUserParameters.swift */; };
+		184C498B2243AC11001A9E5B /* UserAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C498A2243AC11001A9E5B /* UserAddress.swift */; };
 		7B6025731EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025741EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025751EF169E7005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
@@ -185,6 +186,7 @@
 
 /* Begin PBXFileReference section */
 		184C498422423A32001A9E5B /* ModifyUserParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyUserParameters.swift; sourceTree = "<group>"; };
+		184C498A2243AC11001A9E5B /* UserAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAddress.swift; path = Types/UserAddress.swift; sourceTree = "<group>"; };
 		7B6025721EF169E2005EF5B0 /* figo_2017.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = figo_2017.cer; sourceTree = "<group>"; };
 		83017B771C0A2FE80062FC08 /* TaskState.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TaskState.json; path = Resources/TaskState.json; sourceTree = "<group>"; };
 		830E63D81C05A4050048F7BF /* TANScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TANScheme.swift; path = Types/TANScheme.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		83D3A6FA1BFF684C003EDE45 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				184C498A2243AC11001A9E5B /* UserAddress.swift */,
 				83D3A70C1BFFB71D003EDE45 /* Account.swift */,
 				838FDA401C0F348C00525E1D /* AccountType.swift */,
 				83F0E4761C08DA2800FB3709 /* Address.swift */,
@@ -818,6 +821,7 @@
 				83F0E4841C09C60600FB3709 /* FigoUserEndpoints.swift in Sources */,
 				838FD9FB1C0DF8D900525E1D /* CreateSyncTaskParameters.swift in Sources */,
 				838FDA471C0F403700525E1D /* FigoDate.swift in Sources */,
+				184C498B2243AC11001A9E5B /* UserAddress.swift in Sources */,
 				838FD9FF1C0DF8D900525E1D /* PollTaskStateParameters.swift in Sources */,
 				83E95C911C0768E50013ED1F /* TaskState.swift in Sources */,
 				838FDA331C0EFB1100525E1D /* PaymentEndpoints.swift in Sources */,

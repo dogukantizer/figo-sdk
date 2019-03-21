@@ -34,13 +34,15 @@ public struct ModifyUserParameters: JSONObjectConvertible {
     /// Two-letter code of preferred language. Only available when calling with scope user=ro or better.
     public let language: String?
     
+    public let password: String?
     
-    public init(name: String, email: String, sendNewsletter: Bool? = false, language: String) {
+    
+    public init(name: String, email: String, sendNewsletter: Bool? = false, language: String, password: String) {
         self.name = name
         self.email = email
         self.sendNewsletter = sendNewsletter
         self.language = language
-        
+        self.password = password
     }
     
     var JSONObject: [String: AnyObject] {
@@ -51,9 +53,11 @@ public struct ModifyUserParameters: JSONObjectConvertible {
             dict["language"] = language as AnyObject?
             dict["email"] = email as AnyObject?
             dict["send_newsletter"] = sendNewsletter as AnyObject?
+            dict["password"] = password as AnyObject?
             
             return dict
         }
     }
 }
+
 

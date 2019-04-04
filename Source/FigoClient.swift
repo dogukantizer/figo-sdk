@@ -16,11 +16,11 @@ internal let POLLING_INTERVAL_MSECS: Int64 = Int64(400) * Int64(NSEC_PER_MSEC)
 internal let POLLING_COUNTDOWN_INITIAL_VALUE = 100 // 100 x 400 ms = 40 s
 
 /// Name of certificate file for public key pinning
-internal let CERTIFICATE_FILES = ["figo_2016", "figo_2017"]
+internal let CERTIFICATE_FILES = ["2019", "figo_2017"]
 
 
 /**
-
+ 
  Represents a figo session, which after successful a login can be used to access all the figo Connect API's endpoints
  
  Applications that would like to access the figo Connect API have to register with us beforehand. If you would like to use figo Connect API in your application, please email us. We would love to hear from you what you have in mind and will generate a client identifier and client secret for your application without any bureaucracy.
@@ -39,12 +39,15 @@ public class FigoClient: NSObject {
     
     /// Used for Basic HTTP authentication, derived from CliendID and ClientSecret
     fileprivate var basicAuthCredentials: String?
-
+    
     /// OAuth2 access token
-    var accessToken: String?
+    public var accessToken: String?
     
     /// OAuth2 refresh token
-    var refreshToken: String?
+    public var refreshToken: String?
+    
+    /// OAuth2 access token
+    public var languageCode: String?
     
     /// Public keys extracted from certificate files in bundle
     lazy var publicKeys: [SecKey] = {
@@ -60,8 +63,9 @@ public class FigoClient: NSObject {
      
      - Note: SSL pinning is implemented in the NSURLSessionDelegate. So if you provide your own NSURLSession, make sure to use FigoClient.dispositionForChallenge(:) in your own NSURLSessionDelegate to enable SSL pinning.
      */
-    public convenience init(clientID: String, clientSecret: String) {
+    public convenience init(clientID: String, clientSecret: String, languageCode: String) {
         self.init(clientID: clientID, clientSecret: clientSecret, session: nil, logger: nil)
+        self.languageCode = languageCode
     }
     
     /**
@@ -89,7 +93,7 @@ public class FigoClient: NSObject {
     }
     
     internal func request(_ endpoint: Endpoint, completion: @escaping (FigoResult<Data>) -> Void) {
-        let mutableURLRequest = endpoint.URLRequest
+        let mutableURLRequest = endpoint.URLRequest(language: self.languageCode!)
         
         if endpoint.needsBasicAuthHeader {
             guard self.basicAuthCredentials != nil else {
@@ -140,7 +144,7 @@ public class FigoClient: NSObject {
                 } else {
                     completion(.failure(FigoError(error: .emptyResponse)))
                 }
-
+                
             }
         })
         task.resume()
@@ -164,7 +168,7 @@ public class FigoClient: NSObject {
                 }
                 return .cancelAuthenticationChallenge
             }
-
+            
         } else {
             if challenge.previousFailureCount > 0 {
                 return .cancelAuthenticationChallenge

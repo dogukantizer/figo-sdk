@@ -54,4 +54,16 @@ public extension FigoClient {
             completionHandler(decodeVoidResponse(response))
         }
     }
+    
+    
+    /**
+     MODIFY A USER
+     
+     */
+    public func modifyUser(_ user: ModifyUserParameters, _ completionHandler: @escaping VoidCompletionHandler) {
+        request(Endpoint.modifyFigoUser(user)) { response in
+            completionHandler(decodeVoidResponse(response))
+        }
+    }
 }
+

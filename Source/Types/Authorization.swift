@@ -7,11 +7,11 @@
 //
 
 
-internal struct Authorization: Unboxable {
+public struct Authorization: Unboxable {
     
-    var accessToken: String
+    public var accessToken: String
     let expires_in: Int
-    let refreshToken: String?
+    public let refreshToken: String?
     let scope: String
     let tokenType: String
     
@@ -23,3 +23,4 @@ internal struct Authorization: Unboxable {
         tokenType      = try unboxer.unbox(key: "token_type")
     }
 }
+

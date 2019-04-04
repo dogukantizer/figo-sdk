@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184C498522423A32001A9E5B /* ModifyUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C498422423A32001A9E5B /* ModifyUserParameters.swift */; };
+		184C498B2243AC11001A9E5B /* UserAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C498A2243AC11001A9E5B /* UserAddress.swift */; };
 		7B6025731EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025741EF169E2005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
 		7B6025751EF169E7005EF5B0 /* figo_2017.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7B6025721EF169E2005EF5B0 /* figo_2017.cer */; };
@@ -183,6 +185,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184C498422423A32001A9E5B /* ModifyUserParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyUserParameters.swift; sourceTree = "<group>"; };
+		184C498A2243AC11001A9E5B /* UserAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAddress.swift; path = Types/UserAddress.swift; sourceTree = "<group>"; };
 		7B6025721EF169E2005EF5B0 /* figo_2017.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = figo_2017.cer; sourceTree = "<group>"; };
 		83017B771C0A2FE80062FC08 /* TaskState.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TaskState.json; path = Resources/TaskState.json; sourceTree = "<group>"; };
 		830E63D81C05A4050048F7BF /* TANScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TANScheme.swift; path = Types/TANScheme.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 		838FD9F31C0DF8D900525E1D /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				184C498422423A32001A9E5B /* ModifyUserParameters.swift */,
 				838FD9F41C0DF8D900525E1D /* CreateAccountParameters.swift */,
 				838FDA2B1C0EEFB500525E1D /* CreatePaymentParameters.swift */,
 				838FD9F51C0DF8D900525E1D /* CreateSyncTaskParameters.swift */,
@@ -373,6 +378,7 @@
 		83D3A6FA1BFF684C003EDE45 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				184C498A2243AC11001A9E5B /* UserAddress.swift */,
 				83D3A70C1BFFB71D003EDE45 /* Account.swift */,
 				838FDA401C0F348C00525E1D /* AccountType.swift */,
 				83F0E4761C08DA2800FB3709 /* Address.swift */,
@@ -577,25 +583,27 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CodeStage;
 				TargetAttributes = {
 					833C00EE1E2AA6A100AA5E7C = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					833C00FA1E2AA72A00AA5E7C = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					833C01391E2AAB4200AA5E7C = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					83F3AF211BFF28D900767D77 = {
 						CreatedOnToolsVersion = 7.1.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -800,6 +808,7 @@
 				83648D661C0C75E600286FFB /* SupportedService.swift in Sources */,
 				831183761E3DF13D000DA80C /* Logging.swift in Sources */,
 				838FD9F91C0DF8D900525E1D /* CreateAccountParameters.swift in Sources */,
+				184C498522423A32001A9E5B /* ModifyUserParameters.swift in Sources */,
 				83648D631C0C705700286FFB /* SupportedBank.swift in Sources */,
 				838FDA361C0EFC0300525E1D /* Payment.swift in Sources */,
 				83E95C941C076C190013ED1F /* Challenge.swift in Sources */,
@@ -812,6 +821,7 @@
 				83F0E4841C09C60600FB3709 /* FigoUserEndpoints.swift in Sources */,
 				838FD9FB1C0DF8D900525E1D /* CreateSyncTaskParameters.swift in Sources */,
 				838FDA471C0F403700525E1D /* FigoDate.swift in Sources */,
+				184C498B2243AC11001A9E5B /* UserAddress.swift in Sources */,
 				838FD9FF1C0DF8D900525E1D /* PollTaskStateParameters.swift in Sources */,
 				83E95C911C0768E50013ED1F /* TaskState.swift in Sources */,
 				838FDA331C0EFB1100525E1D /* PaymentEndpoints.swift in Sources */,
@@ -869,8 +879,8 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-				VALID_ARCHS = x86_64;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -892,8 +902,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.figo.macOS;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
-				SWIFT_VERSION = 3.0;
-				VALID_ARCHS = x86_64;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -911,7 +921,8 @@
 				PRODUCT_NAME = "Figo-macOS-Tests";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -928,7 +939,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.figo.macOS.test;
 				PRODUCT_NAME = "Figo-macOS-Tests";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -948,7 +960,8 @@
 				PRODUCT_NAME = "Figo-iOS-Tests";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -966,7 +979,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.figo.iOS.test;
 				PRODUCT_NAME = "Figo-iOS-Tests";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -976,14 +990,22 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1015,7 +1037,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1027,14 +1048,22 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1061,7 +1090,6 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1079,7 +1107,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.figo.iOS;
 				PRODUCT_NAME = Figo;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1095,7 +1124,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.figo.iOS;
 				PRODUCT_NAME = Figo;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

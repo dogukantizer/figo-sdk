@@ -156,7 +156,8 @@ public class FigoClient: NSObject {
     public func dispositionForChallenge(_ challenge: URLAuthenticationChallenge) -> URLSession.AuthChallengeDisposition {
         if let serverTrust = challenge.protectionSpace.serverTrust {
             if !trustIsValid(serverTrust) {
-                return .cancelAuthenticationChallenge
+                return .performDefaultHandling
+                //return .cancelAuthenticationChallenge
             }
             
             if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
@@ -166,12 +167,14 @@ public class FigoClient: NSObject {
                         return .performDefaultHandling
                     }
                 }
-                return .cancelAuthenticationChallenge
+                return .performDefaultHandling
+                //return .cancelAuthenticationChallenge
             }
             
         } else {
             if challenge.previousFailureCount > 0 {
-                return .cancelAuthenticationChallenge
+                return .performDefaultHandling
+                //return .cancelAuthenticationChallenge
             }
         }
         
